@@ -64,29 +64,6 @@ void Matrix::deleteRow(size_t index)
     matrix.erase(matrix.begin() + index);
 }
 
-void Matrix::task1()
-{
-    this->transpose();
-    for (size_t i = 0; i < matrix.size(); i++) 
-    {
-        std::replace (matrix[i].row.begin(), matrix[i].row.end(), matrix[i].searchMinimun(), 0);
-    }
-    this->transpose();
-}
-
-void Matrix::task2()
-{
-    this->transpose();
-    for(auto it = matrix.begin(); it != matrix.end(); it++)
-    {
-        if (it->row[0] > it->row[matrix.size()])
-            {
-                matrix.erase(it);
-            }
-    }
-    this->transpose();
-}
-
 Row& Matrix::operator[](size_t index)
 {
     return matrix[index];
@@ -103,4 +80,14 @@ std::string Matrix::toString()
         }
     }
     return buffer.str();
+
+}
+size_t Matrix::getSize() const
+{
+    return this->matrix.size();
+}
+
+const std::vector<Row> Matrix::getMatrix() const
+{
+    return this->matrix;
 }

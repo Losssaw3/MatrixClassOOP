@@ -41,23 +41,15 @@ public:
  @param index of deleted row
  */
   void deleteRow(size_t index);
-
-  /*
- @brief function which replace the minimal modulus element with zero in every
- column
- */
-  void task1();
-
-  /*
- @brief function which delete columns where first element more than last
- */
-  void task2();
-
   /*
   @brief function which convert matrix into std::string
   @return string which contains matrix
   */  
   std::string toString();
+
+  size_t getSize() const;
+
+  const std::vector<Row> getMatrix() const;
 
 private:
   std::vector<Row> matrix;
